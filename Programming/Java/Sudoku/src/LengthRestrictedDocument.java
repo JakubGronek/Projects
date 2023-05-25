@@ -11,15 +11,15 @@ public final class LengthRestrictedDocument extends PlainDocument {
         this.limit = limit;
     }
 
-    @Override
+    @Override //whenever value is insetrted
     public void insertString(int offs, String str, AttributeSet a)
             throws BadLocationException {
         if (str == null)
             return;
 
-        if ((getLength() + str.length()) <= limit) {
-            if (pattern.matcher(str).matches()){
-                super.insertString(offs, str, a);
+        if ((getLength() + str.length()) <= limit) { //if current length+input length < limit
+            if (pattern.matcher(str).matches()){ //if string matches pattern "numbers 1-9"
+                super.insertString(offs, str, a); //insert string
             }
         }
     }

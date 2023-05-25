@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
+
+//Class for singular input in grid | extends default Swing text field
 public class GridInput extends JTextField {
     private Font font;
     private boolean set = false;
@@ -13,7 +15,7 @@ public class GridInput extends JTextField {
         font  = new Font("SansSherif",Font.BOLD,60);
         this.setSize(10,10);
         this.setFont(font);
-        this.setDocument(new LengthRestrictedDocument(1));
+        this.setDocument(new LengthRestrictedDocument(1)); //limits text size to 1 number from 1-9
     }
 
     public int getCol() {
@@ -24,9 +26,9 @@ public class GridInput extends JTextField {
         return row;
     }
 
-    public void isGiven(boolean set){
+    public void given(boolean set){
         this.set = set;
-    }
+    } //to differentiate beetwen user input and program generated
 
     public boolean isSet() {
         return set;

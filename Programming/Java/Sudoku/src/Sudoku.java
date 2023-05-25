@@ -100,23 +100,22 @@ public class Sudoku {
     public boolean solve() {
         for (int row = 0; row < Sudoku.SIZE; row++) {
             for (int col = 0; col < Sudoku.SIZE; col++) {
-                if (getValue(row, col) == 0) {
-                    for (int test = 1; test <= Sudoku.SIZE; test++) {
-                        if (isValid(test, row, col)) {
+                if (getValue(row, col) == 0) { //if element is empty
+                    for (int test = 1; test <= Sudoku.SIZE; test++) { //cycle throught numbers 1-9
+                        if (isValid(test, row, col)) { //if number can be put insert it
                             put(test, row, col);
-
-                            if (solve()) {
-                                return true;
+                            if (solve()) { // try solving with new number inserted
+                                return true; // if at the end of grid without errors
                             } else {
-                                put(0, row, col);
+                                put(0, row, col); //if error ocured remove current number and try next
                             }
                         }
                     }
-                    return false;
+                    return false; //if no numbers are correct
                 }
             }
         }
-        return true;
+        return true; // if grid cant be solved
     }
 
 //    Function to generate random grid

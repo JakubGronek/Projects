@@ -11,9 +11,9 @@ public class GUI {
     JPanel pane;
 
     public static void main(String[] args) {
-        Sudoku s = new Sudoku();
-        GUI g = new GUI(s);
-        s.generate(Sudoku.Level.EASY);
+        Sudoku s = new Sudoku(); //create new sudoku
+        GUI g = new GUI(s); //create new gui window
+        s.generate(Sudoku.Level.EASY); //
         g.setBoard(s.getGrid());
     }
 
