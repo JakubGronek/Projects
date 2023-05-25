@@ -1,8 +1,11 @@
 import javax.naming.Context;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 
 public class GUI {
     GridInput[][] board;
@@ -36,20 +39,6 @@ public class GUI {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 board[row][col] = new GridInput(row, col);
-//                board[row][col].addActionListener(e -> {
-//                    for (int x = 0; x < 9; x++) {
-//                        for (int y = 0; y < 9; y++) {
-//                            String value = board[x][y].getText().strip();
-//                            if(value != "" && !board[x][y].isSet()){
-//                                if(s.isValid(Integer.parseInt(value), x, y)){
-//                                    board[x][y].setForeground(Color.black);
-//                                }else{
-//                                    board[x][y].setForeground(Color.red);
-//                                }
-//                            }
-//                        }
-//                    }
-//                });
                 grid.add(board[row][col]);
             }
         }
@@ -75,7 +64,7 @@ public class GUI {
                 }
             }
         });
-
+        
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
