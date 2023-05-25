@@ -64,7 +64,7 @@ public class GUI {
         check.addActionListener(e -> {
             for (int row = 0; row < 9; row++) {
                 for (int col = 0; col < 9; col++){
-                    String value = board[row][col].getText().strip();
+                    String value = board[row][col].getText().trim();
                     if(value != "" && !board[row][col].isSet()){
                         if(s.isValid(Integer.parseInt(value), row, col)){
                             board[row][col].setForeground(Color.black);
@@ -101,7 +101,7 @@ public class GUI {
                     board[row][col].setText("");
                 } else {
                     board[row][col].setText(value);
-                    board[row][col].isGiven(true);
+                    board[row][col].given(true);
                     board[row][col].setEditable(false);
                     board[row][col].setBackground(Color.LIGHT_GRAY);
                 }
@@ -109,3 +109,4 @@ public class GUI {
         }
     }
 }
+

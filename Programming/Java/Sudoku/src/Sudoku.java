@@ -5,14 +5,14 @@ public class Sudoku {
     public static final int SIZE = 9;
     private int[][] grid;
 
-//  Enum containing possible difficulty levels
+    //  Enum containing possible difficulty levels
     enum Level {
         EASY,
         MEDIUM,
         HARD
     }
 
-//    Constructor creating new empty 9X9 array called grid
+    //    Constructor creating new empty 9X9 array called grid
     public Sudoku() {
         grid = new int[][]{
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -27,7 +27,7 @@ public class Sudoku {
         };
     }
 
-//    Getter functions
+    //    Getter functions
     public int[][] getGrid(){
         return grid;
     }
@@ -35,12 +35,12 @@ public class Sudoku {
         return grid[row][col];
     }
 
-//    Function to insert value into grid
+    //    Function to insert value into grid
     public void put(int number, int row, int col) {
         grid[row][col] = number;
     }
 
-//    Function to print current grid to console
+    //    Function to print current grid to console
     public void print() {
         System.out.println();
         for (int row = 0; row < SIZE; row++) {
@@ -58,7 +58,7 @@ public class Sudoku {
         System.out.println();
     }
 
-//    Functions for validating if number is placed correctly
+    //    Functions for validating if number is placed correctly
     private boolean inRow(int number, int row) {
         for (int i = 0; i < SIZE; i++) {
             if (grid[row][i] == number) {
@@ -89,14 +89,14 @@ public class Sudoku {
         return true;
     }
 
-//Function that checks if input is correct
+    //Function that checks if input is correct
     public boolean isValid(int number, int row, int col) {
         return inRow(number, row) &&
                 inCol(number, col) &&
                 inBox(number, row, col);
     }
 
-//    Backtracking function for solving sudoku
+    //    Backtracking function for solving sudoku
     public boolean solve() {
         for (int row = 0; row < Sudoku.SIZE; row++) {
             for (int col = 0; col < Sudoku.SIZE; col++) {
@@ -118,7 +118,7 @@ public class Sudoku {
         return true; // if grid cant be solved
     }
 
-//    Function to generate random grid
+    //    Function to generate random grid
     public void generate(Level difficulty) {
         Random generator = new Random();
         int row;
@@ -144,7 +144,7 @@ public class Sudoku {
         }
     }
 
-//    Function to remove random numbers from grid based on weight
+    //    Function to remove random numbers from grid based on weight
     public void filter(double weight) {
         Random random = new Random();
         for (int row = 0; row<SIZE;row++){
@@ -156,7 +156,7 @@ public class Sudoku {
         }
     }
 
-//    Functions to export and import grid from file
+    //    Functions to export and import grid from file
     public void toFile(){
         FileOperations f = new FileOperations();
         String data = "";
@@ -179,3 +179,4 @@ public class Sudoku {
     }
 
 }
+
