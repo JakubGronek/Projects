@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class FileOperations {
@@ -32,11 +29,10 @@ public class FileOperations {
     public void writeData(String data){
         try{
             FileWriter writer = new FileWriter(myFile);
-            writer.write(data);
-            writer.close();
-        }catch(IOException ignored){
-
-        }
+            BufferedWriter bw = new BufferedWriter(writer);
+            bw.write(data);
+            bw.close();
+        }catch(IOException ignored){}
     }
 }
 
